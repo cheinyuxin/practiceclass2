@@ -178,28 +178,82 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbnN0dWRlbnQgPC0gcmVhZF9jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vdHBlbWFydGluL2NvdXJzZS0xMDctMS1wcm9ncmFtbWluZy1mb3ItZGF0YS1zY2llbmNlL21hc3Rlci9kYXRhL3N0dWRlbnQuY3N2XCIpXG5jb2xzKFxuICA/Pz8/Pz8/Pz8gPSBjb2xfY2hhcmFjdGVyKCksXG4gID8/Pz8/Pz8/PyA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgPz8/Pz8/ID0gY29sX2NoYXJhY3RlcigpLFxuICA/Pz8/Pz8gPSBjb2xfZG91YmxlKClcbilcbmBgYCJ9 -->
-<pre class="r"><code>library(readr)
-student &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/student.csv&quot;)
-cols(
-  ????????? = col_character(),
-  ????????? = col_character(),
-  ?????? = col_character(),
-  ?????? = col_double()
-)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShsdWJyaWRhdGUpXG5hIDwtIHNlcSh5bWQoXCIyMDAxLTAxLTAxXCIpLHltZChcIjIwMTgtMDktMDFcIiksYnk9XCJtb250aFwiKVxuYiA8LSBzZXEoeW1kKFwiMjAwMS0wMS0wMVwiKSx5bWQoXCIyMDE4LTA5LTAxXCIpLGJ5PVwicXVhcnRlclwiKVxuYyA8LSBzZXEoeW1kKFwiMjAwMS0wMS0wMVwiKSx5bWQoXCIyMDE4LTA5LTAxXCIpLGJ5PVwieWVhclwiKVxuYGBgIn0= -->
+<pre class="r"><code>library(lubridate)
+a &lt;- seq(ymd(&quot;2001-01-01&quot;),ymd(&quot;2018-09-01&quot;),by=&quot;month&quot;)
+b &lt;- seq(ymd(&quot;2001-01-01&quot;),ymd(&quot;2018-09-01&quot;),by=&quot;quarter&quot;)
+c &lt;- seq(ymd(&quot;2001-01-01&quot;),ymd(&quot;2018-09-01&quot;),by=&quot;year&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2VuZGVyIDwtIGMoXCI/Pz8/Pz9cIiwgXCI/Pz8/Pz9cIiwgXCI/Pz8/Pz9cIiwgXCI/Pz8/Pz9cIiwgXCI/Pz8/Pz9cIiwgXCI/Pz8/Pz9cIilcbmBgYCJ9 -->
-<pre class="r"><code>gender &lt;- c(&quot;??????&quot;, &quot;??????&quot;, &quot;??????&quot;, &quot;??????&quot;, &quot;??????&quot;, &quot;??????&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3R1ZGVudElEIDwtIHJlYWRfY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9naXRodWItZGF0YS9tYXN0ZXIvc3R1ZGVudElELmNzdlwiKVxuYGBgIn0= -->
+<pre class="r"><code>studentID &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/github-data/master/studentID.csv&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2MobGV0dGVycyxMRVRURVJTKVxuc3RyX2MobGV0dGVycyxMRVRURVJTLHNlcD1cIi1cIilcbnN0cl9jKFwibG93ZXJjYXNlOiBcIiwgbGV0dGVycywgXCIsIGNhcGl0YWw6IFwiLCBMRVRURVJTKVxuYGBgIn0= -->
+<pre class="r"><code>str_c(letters,LETTERS)
+str_c(letters,LETTERS,sep=&quot;-&quot;)
+str_c(&quot;lowercase: &quot;, letters, &quot;, capital: &quot;, LETTERS)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbmdpdGh1YkRhdGEgPC0gcmVhZF9jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vdHBlbWFydGluL2dpdGh1Yi1kYXRhL21hc3Rlci9naXRodWJEYXRhLmNzdlwiKVxuYGBgIn0= -->
+<pre class="r"><code>library(readr)
+githubData &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/github-data/master/githubData.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2l0aHViRGF0YVtjKDIsMyw0KSxdIC0+IHNhbXBsZUdpdGh1Ylxuc3RyX2Moc2FtcGxlR2l0aHViJGBHaXRIdWIgdXNlcm5hbWVgLFxuICAgICAgc2FtcGxlR2l0aHViJGBHaXRIdWIgcmVwbyBuYW1lYClcbnN0cl9jKFwiaHR0cHM6Ly9naXRodWIuY29tL1wiLFxuICAgICAgc2FtcGxlR2l0aHViJGBHaXRIdWIgdXNlcm5hbWVgLFxuICAgICAgXCIvXCIsXG4gICAgICBzYW1wbGVHaXRodWIkYEdpdEh1YiByZXBvIG5hbWVgKVxuYGBgIn0= -->
+<pre class="r"><code>githubData[c(2,3,4),] -&gt; sampleGithub
+str_c(sampleGithub$`GitHub username`,
+      sampleGithub$`GitHub repo name`)
+str_c(&quot;https://github.com/&quot;,
+      sampleGithub$`GitHub username`,
+      &quot;/&quot;,
+      sampleGithub$`GitHub repo name`)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbmZpbG1Wb3RpbmdEYXRhIDwtIHJlYWRfY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9jb3Vyc2UtMTA3LTEtcHJvZ3JhbW1pbmctZm9yLWRhdGEtc2NpZW5jZS9tYXN0ZXIvZGF0YS8lRTclQUMlQUMlRTQlQjglODklRTUlQjElODYlRTclQjYlOTMlRTYlQkYlOUYlRTYlOTIlQUQlRTUlQUUlQTIlRTclQUIlQjYlRTglQjMlQkQlRTUlOEYlODMlRTglQjMlQkQlRTQlQkQlOUMlRTUlOTMlODElRTYlOEElOTUlRTclQTUlQTglRTclQjUlOTAlRTYlOUUlOUMlRTYlQTglQTMlRTYlOUMlQUMlMjAtJTIwU2hlZXQxLmNzdlwiKVxuYGBgIn0= -->
+<pre class="r"><code>library(readr)
+filmVotingData &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/%E7%AC%AC%E4%B8%89%E5%B1%86%E7%B6%93%E6%BF%9F%E6%92%AD%E5%AE%A2%E7%AB%B6%E8%B3%BD%E5%8F%83%E8%B3%BD%E4%BD%9C%E5%93%81%E6%8A%95%E7%A5%A8%E7%B5%90%E6%9E%9C%E6%A8%A3%E6%9C%AC%20-%20Sheet1.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Ryc3BsaXQoKVxuYGBgIn0= -->
+<pre class="r"><code>strsplit()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShsdWJyaWRhdGUpXG4reWVhcnMoOTExKVxu5rCR5ZyL5bm05pyIPC1jKFwiMTA5OS8wMS8wMVwiLFwiMTA5OS8wMi8wMVwiLFwiMTA5OS8wMy8wMVwiKVxuYSA8LSBzZXEoeW1kKFwiMjAwMS0wMS0wMVwiKSx5bWQoXCIyMDE4LTA5LTAxXCIpLGJ5PVwibW9udGhcIilcbmIgPC0gc2VxKHltZChcIjIwMDEtMDEtMDFcIikseW1kKFwiMjAxOC0wOS0wMVwiKSxieT1cInF1YXJ0ZXJcIilcbmMgPC0gc2VxKHltZChcIjEwOTktMDEtMDFcIikseW1kKFwiMTA5OS0wMy0wMVwiKSxieT1cInllYXJcIilcbmBgYCJ9 -->
+<pre class="r"><code>library(lubridate)
++years(911)
+民國年月&lt;-c(&quot;1099/01/01&quot;,&quot;1099/02/01&quot;,&quot;1099/03/01&quot;)
+a &lt;- seq(ymd(&quot;2001-01-01&quot;),ymd(&quot;2018-09-01&quot;),by=&quot;month&quot;)
+b &lt;- seq(ymd(&quot;2001-01-01&quot;),ymd(&quot;2018-09-01&quot;),by=&quot;quarter&quot;)
+c &lt;- seq(ymd(&quot;1099-01-01&quot;),ymd(&quot;1099-03-01&quot;),by=&quot;year&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>```</p>
+<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIjIwMTgtMTAtMDMiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KYGBge3J9DQpsaWJyYXJ5KHJlYWRyKQ0Kc3R1ZGVudCA8LSByZWFkX2NzdigiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9jb3Vyc2UtMTA3LTEtcHJvZ3JhbW1pbmctZm9yLWRhdGEtc2NpZW5jZS9tYXN0ZXIvZGF0YS9zdHVkZW50LmNzdiIpDQpjb2xzKA0KICA/Pz8/Pz8/Pz8gPSBjb2xfY2hhcmFjdGVyKCksDQogID8/Pz8/Pz8/PyA9IGNvbF9jaGFyYWN0ZXIoKSwNCiAgPz8/Pz8/ID0gY29sX2NoYXJhY3RlcigpLA0KICA/Pz8/Pz8gPSBjb2xfZG91YmxlKCkNCikNCmBgYA0KDQoNCmBgYHtyfQ0KZ2VuZGVyIDwtIGMoIj8/Pz8/PyIsICI/Pz8/Pz8iLCAiPz8/Pz8/IiwgIj8/Pz8/PyIsICI/Pz8/Pz8iLCAiPz8/Pz8/IikNCmBgYA0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIjIwMTgtMTAtMDMiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KYGBge3J9DQpsaWJyYXJ5KGx1YnJpZGF0ZSkNCmEgPC0gc2VxKHltZCgiMjAwMS0wMS0wMSIpLHltZCgiMjAxOC0wOS0wMSIpLGJ5PSJtb250aCIpDQpiIDwtIHNlcSh5bWQoIjIwMDEtMDEtMDEiKSx5bWQoIjIwMTgtMDktMDEiKSxieT0icXVhcnRlciIpDQpjIDwtIHNlcSh5bWQoIjIwMDEtMDEtMDEiKSx5bWQoIjIwMTgtMDktMDEiKSxieT0ieWVhciIpDQpgYGANCg0KDQpgYGB7cn0NCnN0dWRlbnRJRCA8LSByZWFkX2NzdigiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9naXRodWItZGF0YS9tYXN0ZXIvc3R1ZGVudElELmNzdiIpDQpgYGANCg0KYGBge3J9DQpzdHJfYyhsZXR0ZXJzLExFVFRFUlMpDQpzdHJfYyhsZXR0ZXJzLExFVFRFUlMsc2VwPSItIikNCnN0cl9jKCJsb3dlcmNhc2U6ICIsIGxldHRlcnMsICIsIGNhcGl0YWw6ICIsIExFVFRFUlMpDQpgYGANCg0KYGBge3J9DQpsaWJyYXJ5KHJlYWRyKQ0KZ2l0aHViRGF0YSA8LSByZWFkX2NzdigiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9naXRodWItZGF0YS9tYXN0ZXIvZ2l0aHViRGF0YS5jc3YiKQ0KYGBgDQoNCmBgYHtyfQ0KZ2l0aHViRGF0YVtjKDIsMyw0KSxdIC0+IHNhbXBsZUdpdGh1Yg0Kc3RyX2Moc2FtcGxlR2l0aHViJGBHaXRIdWIgdXNlcm5hbWVgLA0KICAgICAgc2FtcGxlR2l0aHViJGBHaXRIdWIgcmVwbyBuYW1lYCkNCnN0cl9jKCJodHRwczovL2dpdGh1Yi5jb20vIiwNCiAgICAgIHNhbXBsZUdpdGh1YiRgR2l0SHViIHVzZXJuYW1lYCwNCiAgICAgICIvIiwNCiAgICAgIHNhbXBsZUdpdGh1YiRgR2l0SHViIHJlcG8gbmFtZWApDQpgYGANCg0KYGBge3J9DQpsaWJyYXJ5KHJlYWRyKQ0KZmlsbVZvdGluZ0RhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS90cGVtYXJ0aW4vY291cnNlLTEwNy0xLXByb2dyYW1taW5nLWZvci1kYXRhLXNjaWVuY2UvbWFzdGVyL2RhdGEvJUU3JUFDJUFDJUU0JUI4JTg5JUU1JUIxJTg2JUU3JUI2JTkzJUU2JUJGJTlGJUU2JTkyJUFEJUU1JUFFJUEyJUU3JUFCJUI2JUU4JUIzJUJEJUU1JThGJTgzJUU4JUIzJUJEJUU0JUJEJTlDJUU1JTkzJTgxJUU2JThBJTk1JUU3JUE1JUE4JUU3JUI1JTkwJUU2JTlFJTlDJUU2JUE4JUEzJUU2JTlDJUFDJTIwLSUyMFNoZWV0MS5jc3YiKQ0KYGBgDQoNCmBgYHtyfQ0Kc3Ryc3BsaXQoKQ0KYGBgDQoNCmBgYHtyfQ0KbGlicmFyeShsdWJyaWRhdGUpDQoreWVhcnMoOTExKQ0K5rCR5ZyL5bm05pyIPC1jKCIxMDk5LzAxLzAxIiwiMTA5OS8wMi8wMSIsIjEwOTkvMDMvMDEiKQ0KYSA8LSBzZXEoeW1kKCIyMDAxLTAxLTAxIikseW1kKCIyMDE4LTA5LTAxIiksYnk9Im1vbnRoIikNCmIgPC0gc2VxKHltZCgiMjAwMS0wMS0wMSIpLHltZCgiMjAxOC0wOS0wMSIpLGJ5PSJxdWFydGVyIikNCmMgPC0gc2VxKHltZCgiMTA5OS0wMS0wMSIpLHltZCgiMTA5OS0wMy0wMSIpLGJ5PSJ5ZWFyIikNCmBgYA0KYGBgDQoNCg==</div>
 
 
 
