@@ -1,0 +1,38 @@
+---
+title: "練習1"
+date: "2018-10-03"
+output: html_document
+params:
+  studentID: "410682013"
+  studentName: "簡右欣"
+---
+
+```{r}
+library(readr)
+bankdata <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/bankdata.csv") 
+library(dplyr)
+library(magrittr)
+```
+
+
+```{r}
+library(dplyr)
+library(lubridate)
+as.factor(年月日) -> 西元年月日
+levels(年月日)
+table(年月日)
+a <- ymd("090") 
+b <- ymd_hms("+1999")
+factor(年月日),
+       ordered=TRUE) -> 西元年月日
+```
+
+```{r}
+library(dplyr)
+library(lubridate)
+潭美颱風<- read_csv("https://google.org/crisismap/google.com/2018-trami"")
+x <- ydm_hm("2018/23/10 00:00", tz="UTC")
+lubridate:with_tz(x, "Asia/Taipei")
+grep("Taipei",OlsonNames(),value=TRUE)
+```
+
