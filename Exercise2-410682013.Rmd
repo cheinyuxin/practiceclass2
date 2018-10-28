@@ -46,8 +46,10 @@ lubridate::with_tz(seq(ymd("2017-12-28 10:28:58"), ymd("2017-12-28 18:28:58"), b
 2.3 由Timestamp透過`lubridate::hour()`取出學生上網填表的小時值並存在新的變數`filmVotingData$hour`。  
 
 ```{r ans23}
+library(stringr)
+str_split_fixed(filmVotingData$hour,n=1,simply=true)->splitResult
 lubridate::hour(Timestamp)
-timestamp(filmVotingData$hour)
+
 ```
 
 2.4 使用`table()`統計學生最活躍的填表時間。
