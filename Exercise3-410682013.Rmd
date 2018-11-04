@@ -66,7 +66,8 @@ hwData<-gs_read(gsLMSHabit,ws="作業上傳")
 資料的Timestamp為台灣時間，請將Timestamp變數設定成為Date/Time類型（即POSIXct)且時區是"Asia/Taipei"。（hint: `lubridate::mdy_hms()`）
 
 ```{r ans21}
-lubridate::mdy_hms(hwData$Timestamp,tzone="Asia/Taipei")
+library(lubridate)
+with_tz(ymd_hms("2018-10-24 00:00:00",tzone="Asia/Taipei"))
 ```
 
 ### 2.2
@@ -92,11 +93,13 @@ difftime(x-y)<-hwData$early
 利用`round()`將early變數的天數四捨五入到整數。
 
 ```{r ans24}
+library(lubridate)
+round(hwData$early)
 ```
 
 ### 2.5
 作業1（即作業代碼為"hw1"）準時交的人中，他們的提早天數分佈如何？請使用`table()`呈現。
 
 ```{r ans25}
-table(hwData$作業代碼)
+table(hwData$作業代碼"hw1")
 ```
