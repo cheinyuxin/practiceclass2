@@ -130,3 +130,10 @@ head(collegeData5[,c("一年級男生","一年級女生","一年級男生每千�
 head(collegeData6[,c("一年級男生","一年級女生","一年級男生每千人","一年級女生每千人")])
 ```
 
+```{r}
+library(stringr)
+college1stYearData %>%
+  mutate_all(funs(parse_number(.,locale=cl))) ->
+  college1stYearDataNumeric
+```
+
