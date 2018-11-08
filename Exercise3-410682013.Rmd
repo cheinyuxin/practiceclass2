@@ -35,7 +35,7 @@ bb<-"沒看公告"
 ```{r }
 table(classData$`公-10-06`)
 colnames(classData)
-row(as.factor(classData$`公-10-06`&1))
+#row(as.factor(classData$`公-10-06`&1))
 ```
 
 ### 1.3
@@ -85,8 +85,8 @@ hwData$deadline <-as.POSIXct(hwData$deadline)
 ```{r ans23}
 x<-c(hwData$deadline)
 y<-c(hwData$Timestamp)
-class(x-y)->difftime(x-y)
-difftime(x-y)<-hwData$early
+#class(x-y)->difftime(x-y)
+#difftime(x-y)<-hwData$early
 ```
 
 ### 2.4
@@ -94,12 +94,12 @@ difftime(x-y)<-hwData$early
 
 ```{r ans24}
 library(lubridate)
-round(hwData$early)
+#round(hwData$early)
 ```
 
 ### 2.5
 作業1（即作業代碼為"hw1"）準時交的人中，他們的提早天數分佈如何？請使用`table()`呈現。
 
 ```{r ans25}
-table(hwData$作業代碼"hw1", hwData$early)
+#table(hwData$作業代碼"hw1", hwData$early)
 ```
