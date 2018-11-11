@@ -27,31 +27,31 @@ sum(gsHW2ws$'ans1'==1, na.rm=TRUE)/45*100
 ## 1.2
 使用`stringr::str_which()`來找出gsHW2ws中所有變數名稱包含的"ans"的欄位位置。
 ```{r ans12}
-
+colnames(gsHW2ws[,1:5])
 ```
 
 ## 1.3
 使用`colMeans(x, na.rm=T)`一口氣計算五題的正確率（產生一個包含5題正確率的數值向量）。
 ```{r ans13}
 library(readr)
-colMeans(gsHW2ws[,1:4]==1, na.rm=T)*100
+colMeans(gsHW2ws[,1:5]==1, na.rm=T)*100
 ```
 
 ## 1.4
 透過`gsHW2ws$答對率 <- ...` 在gsHW2ws新增一個欄位變數叫「答對率」, 其值為每個人各自在5題的正確比率。（hint: `rowSums(x, na.rm=TRUE)`) 
 ```{r ans14}
-gsHW2ws$答對率 <-rowSums(gsHW2ws[,1:4]==1, na.rm=T)
+gsHW2ws$答對率 <-rowSums(gsHW2ws[,1:5]==1, na.rm=T)/5*100
 ```
 
 ## 1.5
 作業成績為5分加上「答對率」* 5。請在gsHW2ws新增「成績」欄位，並填入每個人的成績值。  
 ```{r ans15}
+gsHW2ws$成績<-5+gsHW2ws$答對率
 ```
 
 ## 1.6
 答對4題的人，最常錯的問題是那兩題？請找出其題目代碼。(`min()`與`max()`可找出極小與極大值，而`which()`可找出符合設定條件的元素位置)
 ```{r ans16}
-library(readr)
 
 ```
 
@@ -74,6 +74,9 @@ allBankData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data
 **allBankData**的**年月**變數為民國年月，請將他改成西元年月日的date class, 「日」請設定成為1號，結果請存回**年月**變數。（hint: 善用`stringr::str_c()`及`lubridate::ymd()`丶`lubridate::years()`）
 
 ```{r ans21}
+library(lubridate)
+library(stringr)
+
 ```
 
 ## 2.2
@@ -91,6 +94,7 @@ exData <- read_csv("https://quality.data.gov.tw/dq_download_csv.php?nid=6563&md5
 ## 3.1
 將所有變數的class修正正確。改題方式會去檢查整個dataframe中所有欄位的class，故最後一行請寫dataframe名稱。(hint: 使用`mutate_at()`)
 ```{r ans31}
+
 ```
 
 ## 3.2
