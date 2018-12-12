@@ -178,11 +178,158 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcik7IGxpYnJhcnkoZHBseXIpOyBsaWJyYXJ5KHN0cmluZ3IpOyBsaWJyYXJ5KGx1YnJpZGF0ZSlcbmBgYCJ9 -->
+<pre class="r"><code>library(readr); library(dplyr); library(stringr); library(lubridate)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbmxpYnJhcnlEYXRhIDwtIHJlYWRfY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9naXRodWItZGF0YS9tYXN0ZXIvbGlicmFyeTEwMF8xMDIuY3N2XCIpXG5gYGAifQ== -->
+<pre class="r"><code>library(readr)
+libraryData &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/github-data/master/library100_102.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeURhdGEk5pu457GN6aSo6JeP5ZywICU+JSBhcy5mYWN0b3IgJT4lIGxldmVscyAtPiBzdG9yYWdlTG9jYXRpb25zXG5zdG9yYWdlTG9jYXRpb25zXG5gYGAifQ== -->
+<pre class="r"><code>libraryData$書籍館藏地 %&gt;% as.factor %&gt;% levels -&gt; storageLocations
+storageLocations</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeURhdGEk5pu457GN6aSo6JeP5ZywIDwtXG4gIGFzLmZhY3RvcihsaWJyYXJ5RGF0YSTmm7jnsY3ppKjol4/lnLApXG5sZXZlbHMobGlicmFyeURhdGEk5pu457GN6aSo6JeP5ZywKSAtPiBzdG9yYWdlTG9jYXRpb25zXG5gYGAifQ== -->
+<pre class="r"><code>libraryData$書籍館藏地 &lt;-
+  as.factor(libraryData$書籍館藏地)
+levels(libraryData$書籍館藏地) -&gt; storageLocations</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWxsQm9ycm93Q291bnQgPC0gdmVjdG9yKFwibnVtZXJpY1wiLDE4KVxuXG5pPC0xXG4jIDFcbnN0b3JhZ2VMb2NhdGlvbl9pIDwtIHN0b3JhZ2VMb2NhdGlvbnNbaV0gXG4jIDJcbm51bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlPC13aGljaChsaWJyYXJ5RGF0YSTmm7jnsY3ppKjol4/lnLA9PXN0b3JhZ2VMb2NhdGlvbl9pKVxuc3Vic2FtcGxlX2kgPC0gbGlicmFyeURhdGFbbnVtZXJpY2FsSW5kZXhGb3JTdWJzYW1wbGUsXVxuIyAzXG5ib3Jyb3dDb3VudF9pIDwtIG5yb3coc3Vic2FtcGxlX2kpXG5gYGAifQ== -->
+<pre class="r"><code>allBorrowCount &lt;- vector(&quot;numeric&quot;,18)
+
+i&lt;-1
+# 1
+storageLocation_i &lt;- storageLocations[i] 
+# 2
+numericalIndexForSubsample&lt;-which(libraryData$書籍館藏地==storageLocation_i)
+subsample_i &lt;- libraryData[numericalIndexForSubsample,]
+# 3
+borrowCount_i &lt;- nrow(subsample_i)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyAwXG5hbGxCb3Jyb3dDb3VudCA8LSB2ZWN0b3IoXCJudW1lcmljXCIsMTgpXG5mb3IoaSBpbiBjKDE6MTgpKXtcbiAgIyAxXG4gIHN0b3JhZ2VMb2NhdGlvbl9pIDwtIHN0b3JhZ2VMb2NhdGlvbnNbaV0gXG4gICMgMlxuICBudW1lcmljYWxJbmRleEZvclN1YnNhbXBsZTwtd2hpY2gobGlicmFyeURhdGEk5pu457GN6aSo6JeP5ZywPT1zdG9yYWdlTG9jYXRpb25faSlcbiAgc3Vic2FtcGxlX2kgPC0gbGlicmFyeURhdGFbbnVtZXJpY2FsSW5kZXhGb3JTdWJzYW1wbGUsXVxuICAjIDNcbiAgYm9ycm93Q291bnRfaSA8LSBucm93KHN1YnNhbXBsZV9pKVxuICAjIDRcbiAgYWxsQm9ycm93Q291bnRbW2ldXTwtYm9ycm93Q291bnRfaSAgXG59XG5gYGAifQ== -->
+<pre class="r"><code># 0
+allBorrowCount &lt;- vector(&quot;numeric&quot;,18)
+for(i in c(1:18)){
+  # 1
+  storageLocation_i &lt;- storageLocations[i] 
+  # 2
+  numericalIndexForSubsample&lt;-which(libraryData$書籍館藏地==storageLocation_i)
+  subsample_i &lt;- libraryData[numericalIndexForSubsample,]
+  # 3
+  borrowCount_i &lt;- nrow(subsample_i)
+  # 4
+  allBorrowCount[[i]]&lt;-borrowCount_i  
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeURhdGEk5a246ZmiJT4lIGFzLmZhY3RvciAlPiUgbGV2ZWxzIC0+IGNvbGxlZ2VcbiMwIFxuY29sbGVnZUJvcnJvd0NvdW50IDwtIHZlY3RvcihcIm51bWVyaWNcIixsZW5ndGgoY29sbGVnZSkpXG5mb3IoaSBpbiBjKDE6bGVuZ3RoKGNvbGxlZ2UpKSl7XG4jMVxuY29sbGVnZV9pIDwtIGNvbGxlZ2VbaV1cbiMyXG5udW1lcmljYWxJbmRleEZvclN1YnNhbXBsZTwtd2hpY2gobGlicmFyeURhdGEk5a246ZmiID09IGNvbGxlZ2VfaSlcbmNvbGxlZ2VzdWJzYW1wbGVfaSA8LSBsaWJyYXJ5RGF0YVtudW1lcmljYWxJbmRleEZvclN1YnNhbXBsZSxdXG4jM1xuY29sbGVnZUJvcnJvd0NvdW50X2kgPC0gbnJvdyhjb2xsZWdlc3Vic2FtcGxlX2kpXG4jNFxuY29sbGVnZUJvcnJvd0NvdW50W1tpXV08LWNvbGxlZ2VCb3Jyb3dDb3VudF9pIH1cbmBgYCJ9 -->
+<pre class="r"><code>libraryData$學院%&gt;% as.factor %&gt;% levels -&gt; college
+#0 
+collegeBorrowCount &lt;- vector(&quot;numeric&quot;,length(college))
+for(i in c(1:length(college))){
+#1
+college_i &lt;- college[i]
+#2
+numericalIndexForSubsample&lt;-which(libraryData$學院 == college_i)
+collegesubsample_i &lt;- libraryData[numericalIndexForSubsample,]
+#3
+collegeBorrowCount_i &lt;- nrow(collegesubsample_i)
+#4
+collegeBorrowCount[[i]]&lt;-collegeBorrowCount_i }</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeURhdGEk5a246JmfICU+JSBhcy5mYWN0b3IgJT4lIGxldmVscyAtPiBzdHVkZW50XG5zdHVkZW50Qm9ycm93IDwtIHZlY3RvcihcIm51bWVyaWNcIiwgbGVuZ3RoKHN0dWRlbnQpKVxuZm9yKGkgaW4gYygxOmxlbmd0aChzdHVkZW50KSkpe1xuc3R1ZGVudF9pIDwtIHN0dWRlbnRbaV1cbm51bWVyaWNhbEluZGV4IDwtIHdoaWNoKGxpYnJhcnlEYXRhJOWtuOiZnyA9PSBzdHVkZW50X2kpXG5zdHVkZW50U3Vic2FtcGxlX2kgPC0gbGlicmFyeURhdGFbbnVtZXJpY2FsSW5kZXgsXVxuc3R1ZGVudEJvcnJvd19pIDwtIG5yb3coc3R1ZGVudFN1YnNhbXBsZV9pKVxuc3R1ZGVudEJvcnJvd1tbaV1dIDwtIHN0dWRlbnRCb3Jyb3dfaVxufVxuYGBgIn0= -->
+<pre class="r"><code>libraryData$學號 %&gt;% as.factor %&gt;% levels -&gt; student
+studentBorrow &lt;- vector(&quot;numeric&quot;, length(student))
+for(i in c(1:length(student))){
+student_i &lt;- student[i]
+numericalIndex &lt;- which(libraryData$學號 == student_i)
+studentSubsample_i &lt;- libraryData[numericalIndex,]
+studentBorrow_i &lt;- nrow(studentSubsample_i)
+studentBorrow[[i]] &lt;- studentBorrow_i
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeURhdGEgJT4lXG4gIGdyb3VwX2J5KOabuOexjemkqOiXj+WcsCkgJT4lXG4gIHN1bW1hcmlzZShcbiAgICBib3Jyb3dDb3VudD1sZW5ndGgo5a246JmfKSBcbiAgKSAtPiByZXN1bHRcbnJlc3VsdFxuYGBgIn0= -->
+<pre class="r"><code>libraryData %&gt;%
+  group_by(書籍館藏地) %&gt;%
+  summarise(
+    borrowCount=length(學號) 
+  ) -&gt; result
+result</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeURhdGEgJT4lXG4gIG11dGF0ZShcbiAgICDlrbjns7s9c3RyX3N1YijlrbjomZ8sNSw2KVxuICApIC0+bGlicmFyeURhdGFcbmBgYCJ9 -->
+<pre class="r"><code>libraryData %&gt;%
+  mutate(
+    學系=str_sub(學號,5,6)
+  ) -&gt;libraryData</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeURhdGEgJT4lXG4gIGdyb3VwX2J5KOWtuOmZoizlhaXlrbjlubQpICU+JVxuICBzdW1tYXJpc2UoXG4gICAgYm9ycm93Q291bnQ9bGVuZ3RoKOWtuOiZnylcbiAgKSAlPiVcbiAgdW5ncm91cC0+IHJlc3VsdDJcbnJlc3VsdDJcbmBgYCJ9 -->
+<pre class="r"><code>libraryData %&gt;%
+  group_by(學院,入學年) %&gt;%
+  summarise(
+    borrowCount=length(學號)
+  ) %&gt;%
+  ungroup-&gt; result2
+result2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIzAgY29udGFpbmVyXG5cbmZvcihpIGluIHNlcV9hbG9uZyhjb2xsZWdlKSl7XG4gIGZvcihqIGluIHNlcV9hbG9uZyhlbnRyYW5jZXllYXIpKVxuICAgfVxuYGBgIn0= -->
+<pre class="r"><code>#0 container
+
+for(i in seq_along(college)){
+  for(j in seq_along(entranceyear))
+   }</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIjIwMTgtMTItMTIiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCg0KYGBgDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIjIwMTgtMTItMTIiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkocmVhZHIpOyBsaWJyYXJ5KGRwbHlyKTsgbGlicmFyeShzdHJpbmdyKTsgbGlicmFyeShsdWJyaWRhdGUpDQpgYGANCg0KYGBge3J9DQpsaWJyYXJ5KHJlYWRyKQ0KbGlicmFyeURhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS90cGVtYXJ0aW4vZ2l0aHViLWRhdGEvbWFzdGVyL2xpYnJhcnkxMDBfMTAyLmNzdiIpDQpgYGANCg0KYGBge3J9DQpsaWJyYXJ5RGF0YSTmm7jnsY3ppKjol4/lnLAgJT4lIGFzLmZhY3RvciAlPiUgbGV2ZWxzIC0+IHN0b3JhZ2VMb2NhdGlvbnMNCnN0b3JhZ2VMb2NhdGlvbnMNCmBgYA0KDQpgYGB7cn0NCmxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsCA8LQ0KICBhcy5mYWN0b3IobGlicmFyeURhdGEk5pu457GN6aSo6JeP5ZywKQ0KbGV2ZWxzKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsCkgLT4gc3RvcmFnZUxvY2F0aW9ucw0KYGBgDQoNCmBgYHtyfQ0KYWxsQm9ycm93Q291bnQgPC0gdmVjdG9yKCJudW1lcmljIiwxOCkNCg0KaTwtMQ0KIyAxDQpzdG9yYWdlTG9jYXRpb25faSA8LSBzdG9yYWdlTG9jYXRpb25zW2ldIA0KIyAyDQpudW1lcmljYWxJbmRleEZvclN1YnNhbXBsZTwtd2hpY2gobGlicmFyeURhdGEk5pu457GN6aSo6JeP5ZywPT1zdG9yYWdlTG9jYXRpb25faSkNCnN1YnNhbXBsZV9pIDwtIGxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlLF0NCiMgMw0KYm9ycm93Q291bnRfaSA8LSBucm93KHN1YnNhbXBsZV9pKQ0KYGBgDQoNCmBgYHtyfQ0KIyAwDQphbGxCb3Jyb3dDb3VudCA8LSB2ZWN0b3IoIm51bWVyaWMiLDE4KQ0KZm9yKGkgaW4gYygxOjE4KSl7DQogICMgMQ0KICBzdG9yYWdlTG9jYXRpb25faSA8LSBzdG9yYWdlTG9jYXRpb25zW2ldIA0KICAjIDINCiAgbnVtZXJpY2FsSW5kZXhGb3JTdWJzYW1wbGU8LXdoaWNoKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsD09c3RvcmFnZUxvY2F0aW9uX2kpDQogIHN1YnNhbXBsZV9pIDwtIGxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlLF0NCiAgIyAzDQogIGJvcnJvd0NvdW50X2kgPC0gbnJvdyhzdWJzYW1wbGVfaSkNCiAgIyA0DQogIGFsbEJvcnJvd0NvdW50W1tpXV08LWJvcnJvd0NvdW50X2kgIA0KfQ0KYGBgDQoNCmBgYHtyfQ0KbGlicmFyeURhdGEk5a246ZmiICU+JSBhcy5mYWN0b3IgJT4lIGxldmVscyAtPiBjb2xsZWdlDQojMCANCmNvbGxlZ2VCb3Jyb3dDb3VudCA8LSB2ZWN0b3IoIm51bWVyaWMiLGxlbmd0aChjb2xsZWdlKSkNCmZvcihpIGluIGMoMTpsZW5ndGgoY29sbGVnZSkpKXsNCiMxDQpjb2xsZWdlX2kgPC0gY29sbGVnZVtpXQ0KIzINCm51bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlPC13aGljaChsaWJyYXJ5RGF0YSTlrbjpmaIgPT0gY29sbGVnZV9pKQ0KY29sbGVnZXN1YnNhbXBsZV9pIDwtIGxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlLF0NCiMzDQpjb2xsZWdlQm9ycm93Q291bnRfaSA8LSBucm93KGNvbGxlZ2VzdWJzYW1wbGVfaSkNCiM0DQpjb2xsZWdlQm9ycm93Q291bnRbW2ldXTwtY29sbGVnZUJvcnJvd0NvdW50X2kgfQ0KYGBgDQoNCmBgYHtyfQ0KbGlicmFyeURhdGEk5a246JmfICU+JSBhcy5mYWN0b3IgJT4lIGxldmVscyAtPiBzdHVkZW50DQpzdHVkZW50Qm9ycm93IDwtIHZlY3RvcigibnVtZXJpYyIsIGxlbmd0aChzdHVkZW50KSkNCmZvcihpIGluIGMoMTpsZW5ndGgoc3R1ZGVudCkpKXsNCnN0dWRlbnRfaSA8LSBzdHVkZW50W2ldDQpudW1lcmljYWxJbmRleCA8LSB3aGljaChsaWJyYXJ5RGF0YSTlrbjomZ8gPT0gc3R1ZGVudF9pKQ0Kc3R1ZGVudFN1YnNhbXBsZV9pIDwtIGxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4LF0NCnN0dWRlbnRCb3Jyb3dfaSA8LSBucm93KHN0dWRlbnRTdWJzYW1wbGVfaSkNCnN0dWRlbnRCb3Jyb3dbW2ldXSA8LSBzdHVkZW50Qm9ycm93X2kNCn0NCmBgYA0KDQpgYGB7cn0NCmxpYnJhcnlEYXRhICU+JQ0KICBncm91cF9ieSjmm7jnsY3ppKjol4/lnLApICU+JQ0KICBzdW1tYXJpc2UoDQogICAgYm9ycm93Q291bnQ9bGVuZ3RoKOWtuOiZnykgDQogICkgLT4gcmVzdWx0DQpyZXN1bHQNCmBgYA0KDQpgYGB7cn0NCmxpYnJhcnlEYXRhICU+JQ0KICBtdXRhdGUoDQogICAg5a2457O7PXN0cl9zdWIo5a246JmfLDUsNikNCiAgKSAtPmxpYnJhcnlEYXRhDQpgYGANCg0KYGBge3J9DQpsaWJyYXJ5RGF0YSAlPiUNCiAgZ3JvdXBfYnko5a246ZmiLOWFpeWtuOW5tCkgJT4lDQogIHN1bW1hcmlzZSgNCiAgICBib3Jyb3dDb3VudD1sZW5ndGgo5a246JmfKQ0KICApICU+JQ0KICB1bmdyb3VwLT4gcmVzdWx0Mg0KcmVzdWx0Mg0KYGBgDQoNCmBgYHtyfQ0KIzAgY29udGFpbmVyDQoNCmZvcihpIGluIHNlcV9hbG9uZyhjb2xsZWdlKSl7DQogIGZvcihqIGluIHNlcV9hbG9uZyhlbnRyYW5jZXllYXIpKQ0KICAgfQ0KYGBgDQoNCmBgYHtyfQ0KDQpgYGANCg0K</div>
 
 
 
