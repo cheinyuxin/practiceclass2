@@ -85,12 +85,9 @@ na2zero(x)=3
 ```
 
 ```{r ans13}
-hwGrades$hw1<-NA
-hwGrades$hw1=0
-hwGrades$hw2<-NA
-hwGrades$hw2=0
-hwGrades$Exercise3<-NA
-hwGrades$Exercise3=0
+na2zero <-function(hwGrades){
+  ifelse(hwGrades=NA,"0")
+}
 ```
 
 ## 1.4 NA處理 
@@ -104,7 +101,9 @@ classSurvey與hwGrades都存在對方所沒有的變數，共通點是他們都�
 
 以下說明取自`?left_join` ：有兩個data frames, 它們的共同變數為**name**
 ```{r}
-band_members
+dplyr::left_join(classSurvey$學號,hwGrades$學號)
+->name
+
 ```
 
 ```{r}
@@ -127,6 +126,10 @@ band_members %>%
 使用整併完的hwGrades透過`mutate()`來計算每個人的**作業平均成績**。（結果請回存hwGrades）
 
 ```{r ans16}
+classSurvey %>%
+  mutate(
+    classSurvey
+  )
 ```
 
 ## 1.7 性別與學業表現：男性
